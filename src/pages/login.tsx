@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
 import { auth } from '../firebase';
 
+
 const Login = () => {
     const [gender, setGender] = useState("");
     const [date, setDate] = useState("");
@@ -24,7 +25,7 @@ const Login = () => {
                 _id: user.uid,
             });
         } catch (error) {
-           
+            
             console.error("Sign In Failed:");
             toast.error("Sign In Failed");
         }

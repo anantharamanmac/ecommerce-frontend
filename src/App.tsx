@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Header from "./components/header";
 import Loader from "./components/loader";
-import ProtectedRoute from "./components/protected-route";
+// import ProtectedRoute from "./components/protected-route";
 import { auth } from "./firebase";
 import { getUser } from "./redux/api/userAPI";
 import { userExist, userNotExist } from "./redux/reducer/userReducer";
@@ -69,31 +69,31 @@ const App = () => {
           <Route path="/cart" element={<Cart />} />
           {/* Not logged In Route */}
           <Route
-            path="/login"
-            element={
-              <ProtectedRoute isAuthenticated={user ? false : true}>
-                <Login />
-              </ProtectedRoute>
-            }
+            path="/login" element ={<Login/>}
+            // element={
+            //   <ProtectedRoute isAuthenticated={user ? false : true}>
+            //     <Login />
+            //   </ProtectedRoute>
+            // }
           />
           {/* Logged In User Routes */}
           <Route
-            element={<ProtectedRoute isAuthenticated={user ? true : false} />}
+            // element={<ProtectedRoute isAuthenticated={user ? true : false} />}
           >
             <Route path="/shipping" element={<Shipping />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/order/:id" element={<OrderDetails />} />
-            <Route path="/pay" element={<Checkout />} />
+            {/* <Route path="/pay" element={<Checkout />} /> */}
           </Route>
           {/* Admin Routes */}
           <Route
-            element={
-              <ProtectedRoute
-                isAuthenticated={true}
-                adminOnly={true}
-                admin={user?.role === "admin" ? true : false}
-              />
-            }
+            // element={
+            //   <ProtectedRoute
+            //     isAuthenticated={true}
+            //     adminOnly={true}
+            //     admin={user?.role === "admin" ? true : false}
+            //   />
+            // }
           >
             <Route path="/admin/dashboard" element={<Dashboard />} />
             <Route path="/admin/product" element={<Products />} />
@@ -119,7 +119,7 @@ const App = () => {
             />
           </Route>
 
-          <Route path="*" element={<NotFound />} />
+          {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </Suspense>
       <Toaster position="top-right" />
