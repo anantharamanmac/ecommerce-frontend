@@ -18,8 +18,8 @@ const Shipping = lazy(() => import("./pages/shipping"));
 const Login = lazy(() => import("./pages/login"));
 const Orders = lazy(() => import("./pages/orders"));
 const OrderDetails = lazy(() => import("./pages/order-details"));
-const NotFound = lazy(() => import("./pages/not-found"));
-const Checkout = lazy(() => import("./pages/checkout"));
+// const NotFound = lazy(() => import("./pages/not-found"));
+// const Checkout = lazy(() => import("./pages/checkout"));
 
 // Admin Routes Importing
 const Dashboard = lazy(() => import("./pages/admin/dashboard"));
@@ -122,7 +122,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
-      <Toaster position="bottom-center" />
+      <Toaster position="top-right" />
     </Router>
   );
 };
